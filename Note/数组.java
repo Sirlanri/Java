@@ -1,9 +1,8 @@
-import java.util.Arrays;
+import java.util.Arrays;//记得导入这个数组操作包
 
-
-public class 数组{
-    public static void main(String[] argStrings){
-        int [] week={1,2,3,4,5,6,7};
+class 笔记{ //为了醒目，就用中文命名了_(:з」∠)_
+    void 数组(){
+        int [] week={1,2,3,4,5,6,7};//直接初始化+生成数组
         int len=week.length;
         System.out.println("长度是："+len);
 
@@ -12,7 +11,7 @@ public class 数组{
         Arrays.fill(a,1);//把1填充到数组a里
         Arrays.fill(b, 2,4,20);//把20填充2-4的位置
 
-        //for输出
+        //用for循环输出，同C语言（赞许Python的输出）
         for(int i=0;i<a.length;i++){
             System.out.println(a[i]);
         }
@@ -47,6 +46,7 @@ public class 数组{
         for(int i=0;i<d.length;i++){
             System.out.print(d[i]+" ");
         }
+        //排序数组d
         Arrays.sort(d);
         System.out.println("\n完全排序后");
         for(int i=0;i<d.length;i++){
@@ -95,7 +95,58 @@ public class 数组{
             }
             System.out.println();
         }        
+    }
 
-        
+
+
+    void 字符串(){
+        String fuck="hello motherfucker~";
+        int 长度=fuck.length();
+        System.out.println(长度);
+
+        //字符串比较
+        String fuck2="what a hell?";
+        System.out.println(fuck.equals(fuck2));//返回的是布尔
+
+        //截取一部分字符串
+        String sub1=fuck.substring(2, 15);//截取2-15
+        System.out.println("从2-15截取："+sub1);
+
+        //查找&替换
+        String word1="I love java";
+        String word2="java";
+        int index=word1.indexOf(word2);//在w1中查找w2的技术
+        System.out.println(index);
+
+        String newword=word1.replace("java", "Python");//后面的词，替换前面的
+        System.out.println(newword);
+
+        char[] hello={'h','e','l','l','o'};
+        String comhello=new String(hello);//列表组合成一个str
+        System.out.println("合成的一个str："+comhello);
+        char[] single=comhello.toCharArray();//把字符串转化为字符列表
+        System.out.println("str合成一个列表");
+        for(int i=0;i<single.length;i++){//用循环输出转化后的字符串列表
+            System.out.println(single[i]);
+        }
+    }
+
+
+    public static void main(String[] args) {
+        //StringBuffer类，非常棒的一个字符串操作方法，节约空间，提升效率
+        //会直接改变原定义的内容，比如下面这个例子——sb
+        StringBuffer sb=new StringBuffer();//声明一个StringBuffe变量
+        sb.append("I ");
+        sb.append("love ");
+        sb.append("java ");
+        System.out.println(sb);
+        System.out.println(sb.toString());//闲着没事可以转化成string格式
+        sb.insert(2, "don't ");//插入
+        System.out.println("插入 "+sb);
+        sb.delete(13, 18);//删除13-18位置的内容
+        System.out.println("删除java "+sb);
+        sb.replace(13,15,"python");
+        sb.delete(2,8);
+        System.out.println("替换后 "+sb);
     }
 }
